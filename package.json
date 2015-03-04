@@ -2,6 +2,7 @@
   "name": "lirantal-smtp-watch",
   "version": "1.0.0",
   "main": "server/app.js",
+  "description": "smtp-watch will create an smtp server for incoming mail connections, and display these e-mails on a web page",
   "dependencies": {
     "express": "~4.0.0",
     "morgan": "~1.0.0",
@@ -85,5 +86,7 @@
     "test": "grunt test",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
-  "private": true
+  "private": true,
+  "author": "Liran Tal <liran.tal@gmail.com> (http://www.enginx.com/)",
+  "license": "MIT"
 }
