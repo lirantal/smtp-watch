@@ -17,6 +17,12 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 // Populate DB with sample data
 if(config.seedDB) { require('./config/seed'); }
 
+// Setup SMTP server
+var simplesmtp = require('simplesmtp');
+var smtpServer = simplesmtp.createServer();
+
+smtpServer.listen(25);
+
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
