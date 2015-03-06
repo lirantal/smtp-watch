@@ -6,5 +6,10 @@ module.exports = {
   // MongoDB connection options
   mongo: {
     uri: 'mongodb://localhost/lirantalsmtpwatch-test'
+  },
+
+  smtp: {
+  	port: 2525
   }
+  
 };

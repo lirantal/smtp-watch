@@ -8,5 +8,10 @@ module.exports = {
     uri: 'mongodb://localhost/lirantalsmtpwatch-dev'
   },
 
-  seedDB: true
+  seedDB: true,
+
+  smtp: {
+  	port: 2525
+  }
+
 };
