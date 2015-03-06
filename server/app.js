@@ -21,7 +21,10 @@ if(config.seedDB) { require('./config/seed'); }
 var simplesmtp = require('simplesmtp');
 var smtpServer = simplesmtp.createServer();
 
-smtpServer.listen(25);
+smtpServer.listen(25, function(err) {
+	if (err)
+		throw err;
+});
 
 // Setup server
 var app = express();
