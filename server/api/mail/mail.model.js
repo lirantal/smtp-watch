@@ -4,9 +4,15 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var MailSchema = new Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  from: String,
+  to: Array,
+  timestamp: {
+  	type: Date,
+  	default: Date.now
+  },
+  data: String,
+  remoteAddress: String,
+  host: String
 });
 
 module.exports = mongoose.model('Mail', MailSchema);
