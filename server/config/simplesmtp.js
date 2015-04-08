@@ -4,6 +4,9 @@
 
 'use strict';
 
+// Require restler for API calls
+var rest = require('restler');
+
 // Fetch configuration
 var config = require('./environment');
 
@@ -36,4 +39,19 @@ smtpServer.on("data", function(envelope, chunk) {
 smtpServer.on("startData", function(envelope) {
 	var messageKey = envelope.date.getTime() + "-" + envelope.from;
 	mailMessages[messageKey] = { 'envelope':envelope, 'chunk': ''} ;
+});
+
+smtpServer.on("dataReady", function(envelope, callback){
+
+	var messageKey = envelope.date.getTime() + "-" + envelope.from;
+	var message = mailMessages[messageKey];
+	rest.post("http://127.0.0.1:9000/api/mails", {
+		data: {
+			'from': message.from
+		}
+	}).on("complete", function(data) {
+		delete mailMessages[messageKey];
+	});
+
+	callback(null);
 });
