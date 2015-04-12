@@ -47,7 +47,10 @@ smtpServer.on("startData", function(envelope) {
 smtpServer.on("dataReady", function(envelope, callback) {
 	var messageKey = envelope.date.getTime() + "-" + envelope.from;
 	var message = mailMessages[messageKey];
-	rest.post("http://127.0.0.1:9000/api/mails", {
+
+	var mailsAPI = "http://" + config.ip + ":" + config.port + "/api/mails";
+
+	rest.post(mailsAPI, {
 		data: {
 			'from': message.from
 		}
