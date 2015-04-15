@@ -49,10 +49,14 @@ smtpServer.on("dataReady", function(envelope, callback) {
 	var message = mailMessages[messageKey];
 
 	var mailsAPI = "http://" + config.ip + ":" + config.port + "/api/mails";
-
 	rest.post(mailsAPI, {
 		data: {
-			'from': message.from
+			'from': message.envelope.from,
+			'to': JSON.stringify(message.envelope.to),
+			'date': message.envelope.date,
+			'data': message.chunk,
+			'remoteAddress': message.envelope.remoteAddress,
+			'host': message.envelope.host
 		}
 	}).on("complete", function(data) {
 		delete mailMessages[messageKey];
