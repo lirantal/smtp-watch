@@ -2,26 +2,33 @@
 
 angular.module('lirantalSmtpWatchApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+    $scope.mails = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+    $http.get('/api/mails').success(function(mails) {
+      $scope.mails = mails;
+      socket.syncUpdates('mail', $scope.mails, function(event, mail, mails) {
+        // sort the array when modified
+        mails.sort(function(a, b) {
+          a = new Date(a.timestamp);
+          b = new Date(b.timestamp);
+          return a>b ? -1 : a<b ? 1 : 0;
+        });
+      });
     });
 
     $scope.addThing = function() {
-      if($scope.newThing === '') {
+      if($scope.newMail === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      $http.post('/api/mails', { name: $scope.newMail });
+      $scope.newMail = '';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteThing = function(mail) {
+      $http.delete('/api/mails/' + mail._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('mail');
     });
   });
