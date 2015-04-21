@@ -12,11 +12,40 @@
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Mail Inbox:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="mail in mails">
-        <li><a href="#" tooltip="{{mail.from}}">{{mail.from}}<button type="button" class="close" ng-click="deleteThing(mail)">&times;</button></a></li>
-      </ul>
+
+		<div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#id</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <thead ng-repeat="mail in mails">
+				<tr>
+					<td>{{mail._id}}</td>
+                	<td>{{mail.from}}</td>
+                	<td>{{mail.to}}</td>
+                	<td>{{mail.timestamp}}</td>
+				</tr>
+				<tr>
+	              <td colspan="4">{{mail.data}}</td>
+	              </tr>
+			</thead>
+
+            </tbody>
+          </table>
+		</div>
+
     </div>
   </div>
+
+
+
 
 <footer class="footer">
   <div class="container">
