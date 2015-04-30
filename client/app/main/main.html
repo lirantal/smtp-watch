@@ -22,13 +22,13 @@
 
               <thead ng-repeat="mail in mails">
 				<tr>
-					<td>{{mail._id}}</td>
+					<td ng-click="mailBody = !mailBody">{{mail._id}}</td>
                 	<td>{{mail.from}}</td>
                 	<td>{{mail.to}}</td>
                 	<td>{{mail.timestamp}}</td>
 				</tr>
 				<tr>
-	              <td colspan="4">{{mail.data}}</td>
+	              <td colspan="4" ng-show="mailBody">{{mail.data}}</td>
 	              </tr>
 			</thead>
 
