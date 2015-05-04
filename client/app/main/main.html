@@ -22,7 +22,7 @@
 
               <thead ng-repeat="mail in mails">
 				<tr>
-					<td ng-click="mailBody = !mailBody">{{mail._id}}</td>
+					<td ng-click="mailBody = !mailBody"><a href="#">{{mail._id}}</a></td>
                 	<td>{{mail.from}}</td>
                 	<td>{{mail.to}}</td>
                 	<td>{{mail.timestamp}}</td>
