@@ -5,7 +5,7 @@ var Mail = require('./mail.model');
 
 // Get list of mails
 exports.index = function(req, res) {
-  Mail.find(function (err, mails) {
+  Mail.find({}).sort({timestamp: -1}).exec(function(err, mails) {
     if(err) { return handleError(res, err); }
     return res.json(200, mails);
   });
