@@ -4,7 +4,7 @@
   "main": "server/app.js",
   "description": "smtp-watch will create an smtp server for incoming mail connections, and display these e-mails on a web page",
   "dependencies": {
-    "express": "~4.0.0",
+    "express": "~4.17.2",
     "morgan": "~1.0.0",
     "body-parser": "~1.5.0",
     "method-override": "~1.0.0",
