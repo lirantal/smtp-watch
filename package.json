@@ -18,8 +18,8 @@
     "mongoose": "~3.8.8",
     "composable-middleware": "^0.3.0",
     "connect-mongo": "^0.4.1",
-    "socket.io": "^1.0.6",
-    "socket.io-client": "^1.0.6",
+    "socket.io": "^3.0.0",
+    "socket.io-client": "^3.0.0",
     "socketio-jwt": "^2.0.2",
     "simplesmtp": "~0.3",
     "restler": "~3.2.2"
