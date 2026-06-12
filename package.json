@@ -80,7 +80,8 @@
     "should": "~3.3.1"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "npm": ">=11.10.0",
+    "node": ">=24.0.0"
   },
   "scripts": {
     "start": "node server/app.js",
