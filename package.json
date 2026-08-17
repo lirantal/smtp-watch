@@ -80,7 +80,7 @@
     "should": "~13.2.3",
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
-    "markdownlint-cli": "0.49.0"
+    "markdownlint-cli": "0.49.1"
   },
   "engines": {
     "npm": ">=11.10.0",
