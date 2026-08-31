@@ -15,7 +15,7 @@
     "compression": "~1.8.1",
     "lodash": "~4.18.1",
     "ejs": "~6.0.1",
-    "mongoose": "~9.8.0",
+    "mongoose": "~9.9.1",
     "composable-middleware": "^0.3.0",
     "connect-mongo": "^6.0.0",
     "socket.io": "^4.8.0",
